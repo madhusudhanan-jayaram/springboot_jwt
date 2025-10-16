@@ -20,6 +20,7 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    //Non-protected (public)
     @PostMapping("/login")
     public AuthResponse login(@RequestBody AuthRequest request) {
         try {
@@ -53,6 +54,7 @@ public class AuthController {
         return new AuthResponse(token);
     }
 
+    //Protected (requires authentication)
     @GetMapping("/hello")
     public String hello() {
         return "Hello, authenticated user!";
